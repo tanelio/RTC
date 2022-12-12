@@ -8,6 +8,8 @@ import scala.concurrent.duration._
 
 import java.net._
 
+import rsyslog.Sensor
+import Data.DB
 //val localhost: InetAddress = InetAddress.getLocalHost
 //val localIpAddress: String = localhost.getHostAddress
 
@@ -20,25 +22,26 @@ import java.net._
 // Need Sensors in two levels, i.e.  top level Sensor for rsyslog; then second level for log-in attempt with origin & credentials...
 // Use Marker to verify you're receiving rsyslog
 
+package RTC {
 
-class LoadSensors(refresh: false)
-{
-  if (refresh) {
+  class LoadSensors(refresh: false) {
+    if (refresh) {
 
+    }
   }
-}
 
-object RTC {
-  val system = ActorSystem("MySystem")
-  val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
+  object RTC {
+    val system = ActorSystem("MySystem")
+    val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
 
-  def main(args: Array[String]): Unit = {
+    def main(args: Array[String]): Unit = {
       if (args.size == 0)
-          println("Hello, you")
+        println("Hello, you")
       else
-          println("Hello, " + args(0))
+        println("Hello, " + args(0))
       val Sense = new LoadSensors(false)
+    }
+
   }
 
 }
-

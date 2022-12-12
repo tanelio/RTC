@@ -7,46 +7,48 @@ import slick.lifted.Tag
 
 import scala.sys.process._
 
+package Data {
+  class DB {
 
-class DB {
+    //  import ruler.Ruler
 
-  import ruler.Ruler
-  import slick.jdbc.meta.MTable
-  import syslog.SyslogReceiver
+    import slick.jdbc.meta.MTable
+    import rsyslog.Sensor
 
-  import scala.concurrent.Await
+    import scala.concurrent.Await
 
-  class Rules(tag: Tag) extends Table[(Int, String, String, Int, Int, Int, Boolean, String)](tag, "RULES") {
-    def id = column[Int]("ID", O.PrimaryKey)
+    class Rules(tag: Tag) extends Table[(Int, String, String, Int, Int, Int, Boolean, String)](tag, "RULES") {
+      def id = column[Int]("ID", O.PrimaryKey)
 
-    def preamble = column[String]("PREAMBLE")
+      def preamble = column[String]("PREAMBLE")
 
-    def pattern = column[String]("PATTERN")
+      def pattern = column[String]("PATTERN")
 
-    def reps = column[Int]("REPS")
+      def reps = column[Int]("REPS")
 
-    def findtime = column[Int]("FINDTIME")
+      def findtime = column[Int]("FINDTIME")
 
-    def bantime = column[Int]("BANTIME")
+      def bantime = column[Int]("BANTIME")
 
-    //def started = column[Timestamp]("STARTED")
-    def active = column[Boolean]("ACTIVE")
+      //def started = column[Timestamp]("STARTED")
+      def active = column[Boolean]("ACTIVE")
 
-    // tcp/udp
-    // ignoreip
-    // target matching
-    def action = column[String]("ACTION")
+      // tcp/udp
+      // ignoreip
+      // target matching
+      def action = column[String]("ACTION")
 
-    def * = (id, preamble, pattern, reps, findtime, bantime, active, action)
+      def * = (id, preamble, pattern, reps, findtime, bantime, active, action)
+    }
+
+    // ToDo: implement actions & firewall chains
+    class Actions(tag: Tag) extends Table[(String, String)](tag, "ACTIONS") {
+      def id = column[String]("ID")
+
+      def action = column[String]("ACTION")
+
+      def * = (id, action)
+    }
+
   }
-
-  // ToDo: implement actions & firewall chains
-  class Actions(tag: Tag) extends Table[(String, String)](tag, "ACTIONS") {
-    def id = column[String]("ID")
-
-    def action = column[String]("ACTION")
-
-    def * = (id, action)
-  }
-
 }
