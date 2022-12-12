@@ -2,7 +2,8 @@ import akka.actor.{Actor, ActorSystem, Props}
 import akka.event.Logging
 import akka.actor.ReceiveTimeout
 
-import scala.concurrent.duration.Duration
+import scala.concurrent.duration.{Duration, DurationInt}
+import scala.language.postfixOps
 
 class Sensor extends Actor
 {
