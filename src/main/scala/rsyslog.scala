@@ -5,7 +5,7 @@ import akka.actor.ReceiveTimeout
 import scala.concurrent.duration.{Duration, DurationInt}
 import scala.language.postfixOps
 
-import RTC.RTC
+import RTC.RTC._
 
 package rsyslog {
 
@@ -13,18 +13,24 @@ package rsyslog {
   import java.net.Inet4Address
   import akka.actor.{Actor, ActorRef, Props, Terminated}
   import akka.util.ByteString
-  import com.google.common.net.InetAddresses.{coerceToInteger, forString}
+//  import com.google.common.net.InetAddresses.{coerceToInteger, forString}
 
   import java.text.SimpleDateFormat
 
-
+  case class Line(l: String, dt: Long, host: String, off: Int)
+  case class Prune()
   class Sensor extends Actor {
     import akka.routing.{ActorRefRoutee, BroadcastRoutingLogic, Router}
 //    import action.Actions._
+    var router = {
+      val routees = Vector.empty[ActorRefRoutee]
+      Router(BroadcastRoutingLogic(), routees)
+    }
 
-//    Actions.init
-    val log = Logging(RTC.system, this)
+    //    Actions.init
+    val log = Logging(system, this)
     private val OLD_SYSLOG_DATE_FORMAT = new SimpleDateFormat("MMM dd HH:mm:ss")
+    val rulerref = system.actorOf(Props[Sensor])
     var InitialTimeout = 60
     context.setReceiveTimeout(InitialTimeout seconds)
     val OffendingIP = new mutable.HashMap[Inet4Address, (Inet4Address, String)]()
