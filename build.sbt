@@ -12,6 +12,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-remote" % "2.7.0",
   "com.typesafe.akka" %% "akka-actor" % "2.7.0",
   "com.typesafe.akka" %% "akka-cluster" % "2.7.0",
+  "com.google.guava" % "guava" % "23.0",
+
 
   "com.typesafe.slick" %% "slick-hikaricp" % "3.4.1"
 )
