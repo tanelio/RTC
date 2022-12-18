@@ -34,7 +34,7 @@ package RTC {
     val system = ActorSystem("MySystem")
     val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
 
-    def main(args: Array[String]): Unit = {
+    // todo add default set of rules
       if (args.size == 0)
         println("Hello, you")
       else

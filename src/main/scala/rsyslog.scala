@@ -17,6 +17,12 @@ package rsyslog {
 
   import java.text.SimpleDateFormat
 
+  object Offenses {
+    // todo add offending IPs to list
+    // todo when an IP offends too many times, block based on behavior
+    val OffendingIP = new mutable.HashMap[Inet4Address, (Inet4Address, String)]()
+  }
+
   case class Line(l: String, dt: Long, host: String, off: Int)
   case class Prune()
   class Sensor extends Actor {
@@ -34,7 +40,6 @@ package rsyslog {
     val rulerref = system.actorOf(Props[Sensor])
     var InitialTimeout = 60
     context.setReceiveTimeout(InitialTimeout seconds)
-    val OffendingIP = new mutable.HashMap[Inet4Address, (Inet4Address, String)]()
     def receive = {
       // Syslog format: https://en.wikipedia.org/wiki/Syslog
       // Syslog RFC: https://tools.ietf.org/html/rfc5424
