@@ -7,3 +7,13 @@ Real-Time Compiler; SCADA & IoT management program
 - receiving data is stored into a sparse spreadsheet type representation, where t can be used like spreadsheet using the internal language
 - responses are real-time, for example iptables filters or SCADA style supervisory controls
 - GraphQL to support carious JS presentations (or web) for graphic visualization
+- This project has just started, but it shares a lot of code with Scanner project (same repo) -- this is not my first time in rodeo
+
+Components used:
+- Scala, with Akka and Slick
+- Reflection (self programming/compiling)
+- possible add-ons: Rhino & JProlog
+
+Not decided:
+- Should RTC clean-up iptables on startup?
+- RTC should conform to existing iptables (denyhosts & Fail2Ban)
