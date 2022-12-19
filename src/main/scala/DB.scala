@@ -8,6 +8,7 @@ import slick.lifted.Tag
 import scala.sys.process._
 
 package Data {
+  import slick.lifted.ProvenShape
   class DB {
 
     //  import ruler.Ruler
@@ -48,6 +49,14 @@ package Data {
       def action = column[String]("ACTION")
 
       def * = (id, action)
+    }
+
+    class Code(tag: Tag) extends Table[(Int, String, String, Timestamp)](tag, "CODE") {
+      def id = column[Int]("ID", O.PrimaryKey)
+      def code = column[String]("CODE")
+      def comment = column[String]("COMMENT")
+      def added = column[Timestamp]("ADDED")
+      def * = (id, code, comment, added)
     }
   }
 
