@@ -49,6 +49,6 @@ package Data {
 
       def * = (id, action)
     }
-
   }
+
 }

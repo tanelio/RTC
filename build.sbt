@@ -15,8 +15,12 @@ libraryDependencies ++= Seq(
   "com.google.guava" % "guava" % "23.0",
 
 
-  "com.typesafe.slick" %% "slick-hikaricp" % "3.4.1"
+  "com.typesafe.slick" %% "slick-hikaricp" % "3.4.1",
+  "com.typesafe.akka" %% "akka-actor-typed" % "2.7.0",
+  "org.scala-lang" % "scala-compiler" % "2.13.10"
 )
+
+
 
 lazy val root = (project in file("."))
   .settings(
