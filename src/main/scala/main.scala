@@ -22,6 +22,9 @@ import Data.DB
 // Need Sensors in two levels, i.e.  top level Sensor for rsyslog; then second level for log-in attempt with origin & credentials...
 // Use Marker to verify you're receiving rsyslog
 
+// todo Add Reflection
+// todo Add Camel
+
 package RTC {
 
   class LoadSensors(refresh: false) {
