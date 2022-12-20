@@ -10,6 +10,7 @@ import scala.sys.process._
 package Data {
   import slick.lifted.{ProvenShape, TableQuery}
 
+  import scala.concurrent.ExecutionContext.Implicits.global
   import scala.concurrent.duration.DurationInt
   object DB {
 
@@ -111,5 +112,6 @@ package Data {
       )
       Await.result(db.run(setup), 30 seconds)
     }
+    db.close()
   }
 }
