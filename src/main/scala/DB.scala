@@ -91,6 +91,7 @@ package Data {
     if (Await.result(db.run(rules.length.result), 10 seconds) == 0) {
       println(s"Creating initial data")
       val setup = DBIO.seq(
+        // todo update actions to match f2b (fail2ban) chains of iptables
 
         // Jul 17 21:21:19 srv2v sshd[11066]: Received disconnect from 116.31.116.37: 11:  [preauth]
         rules += (1, "", "^sshd.+Received disconnect from $ipv4: .+\\[preauth\\]", 1, 0, 3600, true, "ssh"),

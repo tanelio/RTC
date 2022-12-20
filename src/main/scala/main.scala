@@ -37,28 +37,27 @@ package RTC {
   }
 
   object RTC extends App {
+
     import Data.DB._
     import slick.jdbc.meta.MTable
+
     val system = ActorSystem("MySystem")
     val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
 
 
 
     // todo add default set of rules
-      if (args.size == 0)
-        println("Hello, you")
-      else
-        println("Hello, " + args(0))
+    if (args.length == 0)
+      println("Hello, you")
+    else
+      println("Hello, " + args(0))
 
-//    val attacks = TableQuery[Attacks]
-//    val scans = TableQuery[Scans]
-//    val whois = TableQuery[Whois]
+    //    val attacks = TableQuery[Attacks]
+    //    val scans = TableQuery[Scans]
+    //    val whois = TableQuery[Whois]
 
     println(s"creating tab;es/schema")
-
-    }
-
-//    val system = ActorSystem("scanner")
+    //    val system = ActorSystem("scanner")
 
     val sudoprog = "/usr/bin/sudo"
     val whichprog = "/usr/bin/which"
@@ -71,18 +70,21 @@ package RTC {
 
     val Sense = new LoadSensors(false)
 
-  import java.io.File
+    import java.io.File
 
-  def findprog(prog: String): String = {
-    if (new File(prog).exists)
-      prog
-    else
-      Seq(whichprog, prog.split("/").last).!!.trim
+    def findprog(prog: String): String = {
+      if (new File(prog).exists)
+        prog
+      else
+        Seq(whichprog, prog.split("/").last).!!.trim
+    }
+
+    // todo add cleanup of iptables, remove 0 instances on all chains
+    // val i = Seq("iptables", "-vnL", "--line-numbers").!!
+
+    val running = true
+    while (running)
+      Thread.sleep(1000000)
+
   }
-
-  val running = true
-  while (running)
-    Thread.sleep(1000000)
-
-
 }

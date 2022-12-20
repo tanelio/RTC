@@ -52,7 +52,7 @@ package rsyslog {
         val host = str.drop(16).takeWhile(!_.isSpaceChar)
         router.route(Line(str, dt, host, 16 + host.length + 1), sender())
       case Terminated(a) =>
-      // Todo: re-instate rule actor?
+      // Todo re-instantiate rule actor?
       case Prune =>
         router.route(Prune, rulerref)
 
