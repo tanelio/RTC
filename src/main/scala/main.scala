@@ -80,7 +80,19 @@ package RTC {
     }
 
     // todo add cleanup of iptables, remove 0 instances on all chains
-    // val i = Seq("iptables", "-vnL", "--line-numbers").!!
+    // val i = Seq("iptables", "-vnL", "--line-numbers").!!.split("\n")
+    // i(2).split("\\s+")
+    // Array(1, 0, 0, DROP, all, --, *, *, 77.105.198.240, 0.0.0.0/0)
+    // Chain INPUT (policy ACCEPT 347 packets, 37495 bytes)
+    // num   pkts bytes target     prot opt in     out     source               destination
+    // 1        0     0 DROP       all  --  *      *       77.105.198.240       0.0.0.0/0
+    // 2        0     0 DROP       all  --  *      *       101.42.5.163         0.0.0.0/0
+    // 0line, 1pkts, 2bytes, 3target, 4prot(all), 5in(*), 6out(*), 7source, 8dest
+  //  todo Take the list, if zero the whack it (w/chain)
+  // if zero for last of the last
+  // if
+
+
 
     val running = true
     while (running)
