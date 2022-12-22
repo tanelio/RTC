@@ -74,6 +74,10 @@ package Data {
 
     val code = TableQuery[Code]
 
+    //    val attacks = TableQuery[Attacks]
+    //    val scans = TableQuery[Scans]
+    //    val whois = TableQuery[Whois]
+
     val schema = /*attacks.schema ++ scans.schema ++ whois.schema ++*/ rules.schema ++ actions.schema ++ code.schema
     val tables = List(/*attacks, scans, whois,*/ rules, actions, code)
 
