@@ -46,7 +46,7 @@ package Data {
       def * = (id, preamble, pattern, reps, findtime, bantime, active, action)
     }
 
-    val rules = TableQuery[Rules]
+    private val rules = TableQuery[Rules]
 
 
     // ToDo: implement actions & firewall chains
@@ -58,7 +58,7 @@ package Data {
       def * = (id, action)
     }
 
-    val actions = TableQuery[Actions]
+    private val actions = TableQuery[Actions]
 
     class Code(tag: Tag) extends Table[(Int, String, String, Timestamp)](tag, "CODE") {
       def id = column[Int]("ID", O.PrimaryKey)
@@ -72,7 +72,7 @@ package Data {
       def * = (id, code, comment, added)
     }
 
-    val code = TableQuery[Code]
+    private val code = TableQuery[Code]
 
     //    val attacks = TableQuery[Attacks]
     //    val scans = TableQuery[Scans]
