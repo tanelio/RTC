@@ -37,8 +37,8 @@ package rsyslog {
     val log = Logging(system, this)
     private val ISO_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
     private val OLD_SYSLOG_DATE_FORMAT = new SimpleDateFormat("MMM dd HH:mm:ss")
-    val rulerref = system.actorOf(Props[Sensor])
-    var InitialTimeout = 60
+    private val rulerref = system.actorOf(Props[Sensor])
+    private var InitialTimeout = 60
     context.setReceiveTimeout(InitialTimeout seconds)
     def receive = {
       // Syslog format: https://en.wikipedia.org/wiki/Syslog
