@@ -79,13 +79,13 @@ package Data {
     //    val whois = TableQuery[Whois]
 
     val schema = /*attacks.schema ++ scans.schema ++ whois.schema ++*/ rules.schema ++ actions.schema ++ code.schema
-    val tables = List(/*attacks, scans, whois,*/ rules, actions, code)
+    private val tables = List(/*attacks, scans, whois,*/ rules, actions, code)
 
-    val db = Database.forURL("jdbc:h2:~/scanner.h2;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
+    private val db = Database.forURL("jdbc:h2:~/scanner.h2;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
     val sess = db.createSession()
 
     private val existing = db.run(MTable.getTables)
-    val f = existing.flatMap(v => {
+    private val f = existing.flatMap(v => {
       val names = v.map(mt => mt.name.name)
       val createIfNotExist = tables.filter(table =>
         (!names.contains(table.baseTableRow.tableName))).map(_.schema.create)
