@@ -55,12 +55,12 @@ package RTC {
     println(s"creating tab;es/schema")
     //    val system = ActorSystem("scanner")
 
-    val sudoprog = "/usr/bin/sudo"
-    val whichprog = "/usr/bin/which"
-    val nmapprog = findprog("/usr/bin/nmap")
-    val tracerouteprog = findprog("/usr/sbin/traceroute")
-    val whoisprog = findprog("/usr/bin/whois")
-    val iptablesprog = findprog("/sbin/iptables")
+    private val sudoprog = "/usr/bin/sudo"
+    private val whichprog = "/usr/bin/which"
+    private val nmapprog = findprog("/usr/bin/nmap")
+    private val tracerouteprog = findprog("/usr/sbin/traceroute")
+    private val whoisprog = findprog("/usr/bin/whois")
+    private val iptablesprog = findprog("/sbin/iptables")
 
     println(nmapprog, tracerouteprog, whoisprog, iptablesprog)
 
