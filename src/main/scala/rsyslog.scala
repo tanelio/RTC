@@ -56,12 +56,8 @@ package rsyslog {
       case Prune =>
         router.route(Prune, rulerref)
 
-        /*
-      case "text" => log.info("received text")
       case ReceiveTimeout => log.info("Timeout")
         context.setReceiveTimeout(Duration.Undefined) // Turn off the receiveTimeout...
-      case _ => log.info("received unknown message")
-         */
     }
   }
 }
