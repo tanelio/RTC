@@ -71,15 +71,48 @@ package Data {
 
       def * = (id, code, comment, added)
     }
-
     private val code = TableQuery[Code]
 
-    //    val attacks = TableQuery[Attacks]
-    //    val scans = TableQuery[Scans]
-    //    val whois = TableQuery[Whois]
+    class Scans(tag: Tag) extends Table[(Int, Timestamp, Timestamp, String, String)](tag, "SCANS") {
+      def ip = column[Int]("IP", O.PrimaryKey)
 
-    val schema = /*attacks.schema ++ scans.schema ++ whois.schema ++*/ rules.schema ++ actions.schema ++ code.schema
-    private val tables = List(/*attacks, scans, whois,*/ rules, actions, code)
+      def start = column[Timestamp]("START")
+
+      def stop = column[Timestamp]("STOP")
+
+      def whois = column[String]("WHOIS")
+
+      def nmap = column[String]("NMAP")
+      //def traceroute
+      //def os
+      //def ports/results
+      def * = (ip, start, stop, whois, nmap)
+    }
+    private val scans = TableQuery[Scans]
+
+    class Attacks(tag: Tag) extends Table[(Int, Timestamp, Int, Boolean, String, Int, Int, String)](tag, "ATTACKS") {
+      def id = column[Int]("ID", O.PrimaryKey, O.AutoInc) // This is the primary key column
+
+      def ts = column[Timestamp]("TS") // When incident occurred
+
+      def sip = column[Int]("SIP") // SourceIP
+
+      def ll = column[Boolean]("LL") // LinkLocal [Y|N] don't scan locals
+
+      def dip = column[String]("DIP") // DestinationIP
+
+      def dport = column[Int]("DPORT") // Destination Port
+
+      def evil = column[Int]("TYPE") // Type of incident/attack, ToDo: Create Enum
+
+      def desc = column[String]("TXT") // Syslog line of incident
+
+      def * = (id, ts, sip, ll, dip, dport, evil, desc)
+    }
+    private val attacks = TableQuery[Attacks]
+
+    val schema = attacks.schema ++ scans.schema ++ rules.schema ++ actions.schema ++ code.schema
+    private val tables = List(attacks, scans, rules, actions, code)
 
     private val db = Database.forURL("jdbc:h2:~/scanner.h2;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
     val sess = db.createSession()
