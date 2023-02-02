@@ -24,64 +24,44 @@ package Data {
 
     class Rules(tag: Tag) extends Table[(Int, String, String, Int, Int, Int, Boolean, String)](tag, "RULES") {
       def id = column[Int]("ID", O.PrimaryKey)
-
       def preamble = column[String]("PREAMBLE")
-
       def pattern = column[String]("PATTERN")
-
       def reps = column[Int]("REPS")
-
       def findtime = column[Int]("FINDTIME")
-
       def bantime = column[Int]("BANTIME")
-
-      //def started = column[Timestamp]("STARTED")
+//      def started = column[Timestamp]("STARTED")
       def active = column[Boolean]("ACTIVE")
-
       // tcp/udp
       // ignoreip
       // target matching
       def action = column[String]("ACTION")
-
       def * = (id, preamble, pattern, reps, findtime, bantime, active, action)
     }
-
     private val rules = TableQuery[Rules]
 
 
     // ToDo: implement actions & firewall chains
     class Actions(tag: Tag) extends Table[(String, String)](tag, "ACTIONS") {
       def id = column[String]("ID")
-
       def action = column[String]("ACTION")
-
       def * = (id, action)
     }
-
     private val actions = TableQuery[Actions]
 
     class Code(tag: Tag) extends Table[(Int, String, String, Timestamp)](tag, "CODE") {
       def id = column[Int]("ID", O.PrimaryKey)
-
       def code = column[String]("CODE")
-
       def comment = column[String]("COMMENT")
-
       def added = column[Timestamp]("ADDED")
-
       def * = (id, code, comment, added)
     }
     private val code = TableQuery[Code]
 
     class Scans(tag: Tag) extends Table[(Int, Timestamp, Timestamp, String, String)](tag, "SCANS") {
       def ip = column[Int]("IP", O.PrimaryKey)
-
       def start = column[Timestamp]("START")
-
       def stop = column[Timestamp]("STOP")
-
       def whois = column[String]("WHOIS")
-
       def nmap = column[String]("NMAP")
       //def traceroute
       //def os
@@ -92,21 +72,13 @@ package Data {
 
     class Attacks(tag: Tag) extends Table[(Int, Timestamp, Int, Boolean, String, Int, Int, String)](tag, "ATTACKS") {
       def id = column[Int]("ID", O.PrimaryKey, O.AutoInc) // This is the primary key column
-
       def ts = column[Timestamp]("TS") // When incident occurred
-
       def sip = column[Int]("SIP") // SourceIP
-
       def ll = column[Boolean]("LL") // LinkLocal [Y|N] don't scan locals
-
       def dip = column[String]("DIP") // DestinationIP
-
       def dport = column[Int]("DPORT") // Destination Port
-
       def evil = column[Int]("TYPE") // Type of incident/attack, ToDo: Create Enum
-
       def desc = column[String]("TXT") // Syslog line of incident
-
       def * = (id, ts, sip, ll, dip, dport, evil, desc)
     }
     private val attacks = TableQuery[Attacks]
