@@ -18,3 +18,12 @@ Components used:
 Not decided:
 - Should RTC clean-up iptables on startup?
 - RTC should conform to existing iptables (denyhosts & Fail2Ban)
+
+Firewall rules:
+- Trying to co-exist with pre-existing firewalls
+- Trying to not deteriorate performance, despite potentially blocking half the internet (~2 billion IPs)
+- Flush firewalls, esp (INPUT)
+- Allow for pre-amble (policy, internal, DMZ, pre-established)
+- Allow for "all ports" CHAIN
+- Different port CHAINs (e.g. imap|pop3|smtp, web, VoIP)
+- 
