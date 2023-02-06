@@ -54,6 +54,7 @@ package RTC {
 
     println(s"creating tab;es/schema")
     //    val system = ActorSystem("scanner")
+    Data.DB
 
     private val sudoprog = "/usr/bin/sudo"
     private val whichprog = "/usr/bin/which"
