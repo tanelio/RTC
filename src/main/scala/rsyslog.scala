@@ -5,7 +5,8 @@ import akka.actor.ReceiveTimeout
 import scala.concurrent.duration.{Duration, DurationInt}
 import scala.language.postfixOps
 
-import RTC.RTC._
+//import RTC.RTC._
+import main.main._
 
 package rsyslog {
 
@@ -13,6 +14,7 @@ package rsyslog {
   import java.net.Inet4Address
   import akka.actor.{Actor, ActorRef, Props, Terminated}
   import akka.util.ByteString
+  import main.main.system
 //  import com.google.common.net.InetAddresses.{coerceToInteger, forString}
 
   import java.text.SimpleDateFormat
@@ -33,6 +35,7 @@ package rsyslog {
       Router(BroadcastRoutingLogic(), routees)
     }
 
+//    import main.RTC.system
     //    Actions.init
     val log = Logging(system, this)
     private val ISO_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")

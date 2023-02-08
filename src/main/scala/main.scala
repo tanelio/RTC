@@ -24,7 +24,7 @@ import Data.DB
 
 // todo Add Camel
 
-package RTC {
+package main {
 
   import slick.lifted.TableQuery
 
@@ -36,25 +36,10 @@ package RTC {
     }
   }
 
-  object RTC extends App {
+  object main extends App {
 
     import Data.DB._
     import slick.jdbc.meta.MTable
-
-    val system = ActorSystem("MySystem")
-    val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
-
-
-
-    // todo add default set of rules
-    if (args.length == 0)
-      println("Hello, you")
-    else
-      println("Hello, " + args(0))
-
-    println(s"creating tab;es/schema")
-    //    val system = ActorSystem("scanner")
-    Data.DB
 
     private val sudoprog = "/usr/bin/sudo"
     private val whichprog = "/usr/bin/which"
@@ -63,12 +48,7 @@ package RTC {
     private val whoisprog = findprog("/usr/bin/whois")
     private val iptablesprog = findprog("/sbin/iptables")
 
-    println(nmapprog, tracerouteprog, whoisprog, iptablesprog)
-
-    val Sense = new LoadSensors(false)
-
     import java.io.File
-
     def findprog(prog: String): String = {
       if (new File(prog).exists)
         prog
@@ -77,9 +57,29 @@ package RTC {
     }
 
 
-    val running = true
-    while (running)
-      Thread.sleep(1000000)
+//    def main(args: Array[String]) {
+      val system = ActorSystem("MySystem")
+      val Sensor = system.actorOf(Props[Sensor], name = "Sensor")
+//      println(s"PWD=$cwd")
 
-  }
+      // todo add default set of rules
+      if (args.length == 0)
+        println("Hello, you")
+      else
+        println("Hello, " + args(0))
+
+      println(s"creating tab;es/schema")
+      //    val system = ActorSystem("scanner")
+      Data.DB
+
+      println(nmapprog, tracerouteprog, whoisprog, iptablesprog)
+
+      val Sense = new LoadSensors(false)
+
+      val running = true
+      while (running)
+        Thread.sleep(1000000)
+
+    }
+//  }
 }
