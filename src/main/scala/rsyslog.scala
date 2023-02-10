@@ -6,7 +6,7 @@ import scala.concurrent.duration.{Duration, DurationInt}
 import scala.language.postfixOps
 
 //import RTC.RTC._
-import main.main._
+//import main.main._
 
 package rsyslog {
 
@@ -14,7 +14,7 @@ package rsyslog {
   import java.net.Inet4Address
   import akka.actor.{Actor, ActorRef, Props, Terminated}
   import akka.util.ByteString
-  import main.main.system
+  import main.main._
 //  import com.google.common.net.InetAddresses.{coerceToInteger, forString}
 
   import java.text.SimpleDateFormat

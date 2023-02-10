@@ -57,16 +57,16 @@ package Data {
     }
     private val code = TableQuery[Code]
 
-    class Scans(tag: Tag) extends Table[(Int, Timestamp, Timestamp, String, String)](tag, "SCANS") {
+    class Scans(tag: Tag) extends Table[(Int, Timestamp, String, String)](tag, "SCANS") {
       def ip = column[Int]("IP", O.PrimaryKey)
       def start = column[Timestamp]("START")
-      def stop = column[Timestamp]("STOP")
+//      def stop = column[Timestamp]("STOP")
       def whois = column[String]("WHOIS")
       def nmap = column[String]("NMAP")
       //def traceroute
       //def os
       //def ports/results
-      def * = (ip, start, stop, whois, nmap)
+      def * = (ip, start, whois, nmap)
     }
     private val scans = TableQuery[Scans]
 
