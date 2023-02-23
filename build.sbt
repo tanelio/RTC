@@ -4,6 +4,7 @@ ThisBuild / scalaVersion := "2.13.10"
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "3.4.1",
+  "com.h2database" % "h2" % "2.1.214",
   "org.slf4j" % "slf4j-api" %  "2.0.5",
   "org.slf4j" % "slf4j-simple" % "2.0.5",
   "com.typesafe.akka" %% "akka-remote" % "2.7.0",

@@ -76,7 +76,7 @@ package main {
 
       val Sense = new LoadSensors(false)
 
-      val running = true
+      private val running = true
       while (running)
         Thread.sleep(1000000)
 
