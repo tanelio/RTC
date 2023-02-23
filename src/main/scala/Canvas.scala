@@ -16,12 +16,15 @@ object Canvas {
 
 case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
+case class Create(cell: String)
 
 class Cell extends Actor {
   def receive: Receive = {
     case Value2(cell, value) =>
-      Canvas.Sheet += cell -> (value, System.currentTimeMillis) // todo: allow override
+      Canvas.Sheet.put(cell, (value, System.currentTimeMillis))
     case Value3(cell, value, time) =>
-      Canvas.Sheet += cell -> (value, time)
+      Canvas.Sheet.put(cell, (value, time))
+    case Create(cell) =>
+      Canvas.Sheet += cell -> (0, 0)
   }
 }
