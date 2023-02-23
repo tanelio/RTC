@@ -8,19 +8,20 @@ object Canvas {
 //  type Time = Long;
 //  type Node = (LastUpdate: Long, Name: String)
   var Sheet = new mutable.HashMap[String, (Long, String)]()
-
 }
 
 // Cell ID
 //  A1    ?? What if dimensions change?
 //  Name  Through HashMap search
 
-case class Value(Id: String, Value: Int)
+case class Value2(cell: String, value: Long)
+case class Value3(cell: String, value: Long, time: Long)
 
 class Cell extends Actor {
   def receive: Receive = {
-    case Value(Id, Value) =>
-      Canvas.Sheet[Id]._2 = Value
-      Canvas.Sheet[Id]._1 = System.currentTimeMillis()  // todo: allow override
+    case Value2(cell, value) =>
+      Canvas.Sheet += cell -> (value, System.currentTimeMillis) // todo: allow override
+    case Value3(cell, value, time) =>
+      Canvas.Sheet += cell -> (value, time)
   }
 }
