@@ -20,14 +20,15 @@ case class Create(cell: String)
 case class Remove(cell: String)
 
 class Cell extends Actor {
+  import Canvas.Sheet
   def receive: Receive = {
     case Value2(cell, value) =>
-      Canvas.Sheet.put(cell, (value, System.currentTimeMillis))
+      Sheet.put(cell, (value, System.currentTimeMillis))
     case Value3(cell, value, time) =>
-      Canvas.Sheet.put(cell, (value, time))
+      Sheet.put(cell, (value, time))
     case Create(cell) =>
-      Canvas.Sheet += cell -> (0, 0)
+      Sheet += cell -> (0, 0)
     case Remove(cell) =>
-      Canvas.Sheet.remove(cell)
+      Sheet.remove(cell)
   }
 }
