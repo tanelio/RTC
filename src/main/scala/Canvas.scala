@@ -17,6 +17,7 @@ object Canvas {
 case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
 case class Create(cell: String)
+case class Remove(cell: String)
 
 class Cell extends Actor {
   def receive: Receive = {
@@ -26,5 +27,7 @@ class Cell extends Actor {
       Canvas.Sheet.put(cell, (value, time))
     case Create(cell) =>
       Canvas.Sheet += cell -> (0, 0)
+    case Remove(cell) =>
+      Canvas.Sheet.remove(cell)
   }
 }
