@@ -7,11 +7,15 @@ case class Node(LU: Long, name: String)
 object Canvas {
 //  type Time = Long;
 //  type Node = (LastUpdate: Long, Name: String)
-  var Sheet = new mutable.HashMap[String, (Long, String)]()
+  var Sheet = new mutable.HashMap[String, (Long, Long)]()
 }
 
 // Cell ID
-//  A1    ?? What if dimensions change?
+//  A1    What if dimensions change
+//  time  Long    Last update received
+//  value Double|String|IP  Value
+//        String
+//  Quality
 //  Name  Through HashMap search
 
 case class Value2(cell: String, value: Long)
