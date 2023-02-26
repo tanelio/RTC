@@ -12,10 +12,11 @@ object Canvas {
 
 // Cell ID
 //  A1    What if dimensions change
+//  typ   char  Numeric, String
 //  time  Long    Last update received
-//  value Double|String|IP  Value
-//        String
-//  Quality
+//  valF  Double  Value
+//  valS  String
+//  Quality Late, Early, wrong Source, Non secure
 //  Name  Through HashMap search
 
 case class Value2(cell: String, value: Long)
