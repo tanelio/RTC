@@ -7,7 +7,8 @@ case class Node(LU: Long, name: String)
 object Canvas {
 //  type Time = Long;
 //  type Node = (LastUpdate: Long, Name: String)
-  var Sheet = new mutable.HashMap[String, (Long, Long)]()
+//  var Sheet = new mutable.HashMap[String, (Long, Long)]()
+  var Sheet = new mutable.HashMap[String, (Char, Long, Long, Double, String, Char)]()
 }
 
 // Cell ID
