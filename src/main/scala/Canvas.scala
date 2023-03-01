@@ -22,18 +22,18 @@ object Canvas {
 
 case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
-case class Create(cell: String)
-case class Remove(cell: String)
+case class Create(cell: String) // Create Cell + Set Initial values (non-values)
+case class Remove(cell: String) // Remove Cell
 
 class Cell extends Actor {
   import Canvas.Sheet
   def receive: Receive = {
     case Value2(cell, value) =>
-      Sheet.put(cell, (value, System.currentTimeMillis))
+//      Sheet.put(cell, (value, System.currentTimeMillis))
     case Value3(cell, value, time) =>
-      Sheet.put(cell, (value, time))
+//      Sheet.put(cell, (value, time))
     case Create(cell) =>
-      Sheet += cell -> (0, 0)
+      Sheet += cell -> ('I', 0, 0, 0, "", 'I')  // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
   }
