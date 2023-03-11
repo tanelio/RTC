@@ -9,8 +9,8 @@ object Canvas {
 //  type Node = (LastUpdate: Long, Name: String)
 //  var Sheet = new mutable.HashMap[String, (Long, Long)]()
   var Sheet = new mutable.HashMap[String, (Char, Long, Long, Int, Char)]()
-  var floats = new Vector[Double]()
-  var text = new Vector[String]()
+  var floats = Vector[Double]()
+  var text = Vector[String]()
 }
 
 // Cell ID
