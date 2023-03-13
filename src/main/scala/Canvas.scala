@@ -8,7 +8,9 @@ object Canvas {
 //  type Time = Long;
 //  type Node = (LastUpdate: Long, Name: String)
 //  var Sheet = new mutable.HashMap[String, (Long, Long)]()
-  var Sheet = new mutable.HashMap[String, (Char, Long, Long, Int, Char)]()
+//  var Sheet = new mutable.HashMap[String, (Char, Long, Long, Int, Char)]()
+  var Sheet = new mutable.HashMap[String, (Char, Long, Int)]()
+  // Init/Type, TS, Index
   // type: Initial value, Double, String, Bigdecimal
   var floats = Vector[Double]()
   var text = Vector[String]()
@@ -26,7 +28,7 @@ object Canvas {
 
 case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
-case class Create(cell: String) // Create Cell + Set Initial values (non-values)
+case class Create(cell: String, typ: Char) // Create Cell + Set Initial values (non-values)
 case class Remove(cell: String) // Remove Cell
 
 class Cell extends Actor {
@@ -36,8 +38,11 @@ class Cell extends Actor {
 //      Sheet.put(cell, (value, System.currentTimeMillis))
     case Value3(cell, value, time) =>
 //      Sheet.put(cell, (value, time))
-    case Create(cell) =>
-      Sheet += cell -> ('I', 0, 0, 0, "", 'I')  // Initial value
+    case Create(cell, typ) =>
+      typ match {
+        case 'D' =>
+      }
+      Sheet += cell -> ('I', 0, 0)  // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
   }
