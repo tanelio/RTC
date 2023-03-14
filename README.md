@@ -26,4 +26,8 @@ Firewall rules:
 - Allow for pre-amble (policy, internal, DMZ, pre-established)
 - Allow for "all ports" CHAIN
 - Different port CHAINs (e.g. imap|pop3|smtp, web, VoIP)
+
+Sheet/Canvas
+- The "materialized view" of this is going to be a spreadsheet, think Visicalc/Excel
+- But another view is going to be SCADA graphic view using JavaScript libraries
 - 
