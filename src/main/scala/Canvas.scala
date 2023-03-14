@@ -9,12 +9,12 @@ object Canvas {
 //  type Node = (LastUpdate: Long, Name: String)
 //  var Sheet = new mutable.HashMap[String, (Long, Long)]()
 //  var Sheet = new mutable.HashMap[String, (Char, Long, Long, Int, Char)]()
-  var Sheet = new mutable.HashMap[String, (Char, Long, Int)]()
+  var Sheet = new mutable.HashMap[String, (Char, Long, Int, AnyVal)]()
   // Init/Type, TS, Index
   // type: Initial value, Double, String, Bigdecimal
-  var floats = Vector[Double]()
-  var text = Vector[String]()
-  var bd = Vector[BigDecimal]()
+//  var floats = Vector[Double]()
+//  var text = Vector[String]()
+//  var bd = Vector[BigDecimal]()
 }
 
 // Cell ID
@@ -42,7 +42,8 @@ class Cell extends Actor {
       typ match {
         case 'D' =>
       }
-      Sheet += cell -> ('I', 0, 0)  // Initial value
+      Sheet += cell -> ('I', 0, 0, 0)
+    // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
   }
