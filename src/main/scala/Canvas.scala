@@ -1,5 +1,6 @@
 import akka.actor.Actor
 
+import scala.Predef.->
 import scala.collection.mutable
 
 case class Node(LU: Long, name: String)
@@ -15,6 +16,8 @@ object Canvas {
 //  var floats = Vector[Double]()
 //  var text = Vector[String]()
 //  var bd = Vector[BigDecimal]()
+// Historian -- create some structure of each type, for historical storage
+// Use messages to fill?
 }
 
 // Cell ID
@@ -30,6 +33,7 @@ case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
 case class Create(cell: String, typ: Char) // Create Cell + Set Initial values (non-values)
 case class Remove(cell: String) // Remove Cell
+case class Update(cell: String, AnyVal)
 
 class Cell extends Actor {
   import Canvas.Sheet
@@ -46,5 +50,7 @@ class Cell extends Actor {
     // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
+    case Update(cell, v) =>
+      Sheet.put(cell -> (v))
   }
 }
