@@ -17,7 +17,7 @@ object Canvas {
 //  var text = Vector[String]()
 //  var bd = Vector[BigDecimal]()
 // Historian -- create some structure of each type, for historical storage
-// Use messages to fill?
+// Use messages to fill/update?
 }
 
 // Cell ID
