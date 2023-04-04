@@ -33,7 +33,7 @@ case class Value2(cell: String, value: Long)
 case class Value3(cell: String, value: Long, time: Long)
 case class Create(cell: String, typ: Char) // Create Cell + Set Initial values (non-values)
 case class Remove(cell: String) // Remove Cell
-case class Update(cell: String, AnyVal)
+//case class Update(cell: String, AnyVal)
 
 class Cell extends Actor {
   import Canvas.Sheet
@@ -50,7 +50,7 @@ class Cell extends Actor {
     // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
-    case Update(cell, v) =>
-      Sheet.put(cell -> (v))
+//    case Update(cell, v) =>
+//      Sheet.put(cell -> (v))
   }
 }
