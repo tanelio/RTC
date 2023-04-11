@@ -25,7 +25,7 @@ object Historian {
   }
 
   class Hist2[A](val name: String) extends Hist {
-    val vals = Array[Timestamp, A, Char] // TS, Typ(Int,Long,Double, String), Quality
+    val vals = Array[(Timestamp, A, Char)]() // TS, Typ(Int,Long,Double, String), Quality
   }
 
   class Dog(val name: String) extends Pet
