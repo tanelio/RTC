@@ -46,7 +46,7 @@ class Cell extends Actor {
       typ match {
         case 'D' =>
       }
-      Sheet += cell -> ('I', 0, 0, 0)
+//      Sheet += cell -> ('I', 0, 0, 0)
     // Initial value
     case Remove(cell) =>
       Sheet.remove(cell)
