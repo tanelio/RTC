@@ -28,12 +28,13 @@ object Historian {
     val vals = Array[(Timestamp, A, Char)]() // TS, Typ(Int,Long,Double, String), Quality
   }
 
-  class Dog(val name: String) extends Pet
+  class Dog(val name: String) extends Hist
+  class Cat(val name: String) extends Hist
 
   val dog: Dog = new Dog("Harry")
   val cat: Cat = new Cat("Sally")
 
-  val animals = ArrayBuffer.empty[Pet]
+  val animals = ArrayBuffer.empty[Hist]
   animals.append(dog)
   animals.append(cat)
   animals.foreach(pet => println(pet.name)) // Prints Harry Sally
