@@ -35,9 +35,9 @@ object Historian {
   val cat: Cat = new Cat("Sally")
 
   val animals = ArrayBuffer.empty[Hist]
-  animals.append(dog)
-  animals.append(cat)
-  animals.foreach(pet => println(pet.name)) // Prints Harry Sally
+//  animals.append(dog)
+//  animals.append(cat)
+//  animals.foreach(pet => println(pet.name)) // Prints Harry Sally
 
   println(animals(1).name)
 
