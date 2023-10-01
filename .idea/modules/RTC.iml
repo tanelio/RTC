@@ -17,29 +17,28 @@
     <orderEntry type="library" name="sbt: com.google.j2objc:j2objc-annotations:1.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.h2database:h2:2.1.214:jar" level="project" />
     <orderEntry type="library" name="sbt: com.hierynomus:asn-one:0.6.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor-typed_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-coordination_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-pki_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-protobuf-v3_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-remote_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_2.13:2.7.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_2.13:2.7.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor-typed_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-cluster_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-coordination_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-pki_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-protobuf-v3_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-remote_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-slf4j_2.13:2.8.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe.akka:akka-stream_2.13:2.8.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick-hikaricp_2.13:3.4.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.slick:slick_2.13:3.4.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe:config:1.4.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.13:0.4.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.13:0.6.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.zaxxer:HikariCP:4.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: io.github.java-diff-utils:java-diff-utils:4.12:jar" level="project" />
     <orderEntry type="library" name="sbt: net.java.dev.jna:jna:5.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.agrona:agrona:1.16.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.agrona:agrona:1.17.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.codehaus.mojo:animal-sniffer-annotations:1.14:jar" level="project" />
     <orderEntry type="library" name="sbt: org.jline:jline:3.21.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.4:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-collection-compat_2.13:2.8.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.13:1.0.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.13:1.1.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-compiler:2.13.10:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.10:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.13.10:jar" level="project" />
