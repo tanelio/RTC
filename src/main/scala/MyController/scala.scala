@@ -28,7 +28,7 @@ object AppConfig {
   }
 }
 
-case class ControllerComponents
+case class ControllerComponents()
 
 class Inject() extends StaticAnnotation
 
