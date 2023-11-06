@@ -16,9 +16,11 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-compiler" % "2.13.10"
 )
 
+libraryDependencies += "com.typesafe.play" %% "play-slick-evolutions" % "5.1.0"
 
+libraryDependencies +=  "com.mohiva" %% "play-html-compressor" % "0.7.1"
 
-lazy val root = (project in file("."))
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
   .settings(
     name := "RTC"
   )

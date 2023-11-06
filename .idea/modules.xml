@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Controller.scala.iml" filepath="$PROJECT_DIR$/.idea/modules/Controller.scala.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RTC.iml" filepath="$PROJECT_DIR$/.idea/modules/RTC.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RTC-build.iml" filepath="$PROJECT_DIR$/.idea/modules/RTC-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Controller.scala/.idea/modules/controller-scala.iml" filepath="$PROJECT_DIR$/Controller.scala/.idea/modules/controller-scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Controller.scala/.idea/modules/controller-scala-build.iml" filepath="$PROJECT_DIR$/Controller.scala/.idea/modules/controller-scala-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/.idea/modules/main.iml" filepath="$PROJECT_DIR$/main/.idea/modules/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/.idea/modules/main-build.iml" filepath="$PROJECT_DIR$/main/.idea/modules/main-build.iml" />
     </modules>
