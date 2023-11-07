@@ -1,0 +1,1 @@
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "3.0.x") // where version is the current Play version, i.e. "2.9.x"

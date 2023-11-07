@@ -1,7 +1,6 @@
 package Controllers
 
-//class MyController {
-//}
+import play.api.libs.json._
 
 import com.typesafe.config.Config
 import com.typesafe.sslconfig.util.ConfigLoader
