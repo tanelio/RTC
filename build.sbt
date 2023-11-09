@@ -13,6 +13,7 @@ libraryDependencies ++= Seq(
   "com.google.guava" % "guava" % "23.0",
   "com.typesafe.slick" %% "slick-hikaricp" % "3.4.1",
   "com.typesafe.akka" %% "akka-actor-typed" % "2.8.0",
+  "com.typesafe.play" %% "play" % "2.13.10",
   "org.scala-lang" % "scala-compiler" % "2.13.10"
 )
 
